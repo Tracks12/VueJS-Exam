@@ -7,7 +7,7 @@ const appView = {
 					<li v-for="task in tasks">
 						<label>{{ task.label }}</label>
 						<button @click="delTask(task)">
-							<span class="mdi mdi-trash-can"></span>
+							<span class="mdi mdi-trash-can mdi-24px"></span>
 						</button>
 					</li>
 				</ul>
@@ -40,7 +40,8 @@ const appView = {
     delTask(task) {
       this.tasks.forEach((v, k) => {
         if (v.id === task.id) {
-          this.tasks.pop(k, 1);
+          this.tasks.splice(k, 1);
+          console.log(k);
         }
       });
     },
