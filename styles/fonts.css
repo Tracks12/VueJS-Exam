@@ -1,0 +1,25 @@
+/**
+ * "DejaVu Sans Light" Font Integration
+ */
+@font-face {
+  font-family: "DejaVu Sans Light";
+  src: url("/assets/fonts/DejaVu/DejaVu.ttf") format("truetype");
+}
+
+/**
+ * "Heebo" Font Integration
+ */
+@font-face {
+  font-family: "Heebo";
+  src: url("/assets/fonts/Heebo/Heebo-Regular.ttf") format("truetype");
+}
+
+/**
+ * "ROCKET" Font Integration
+ */
+@font-face {
+  font-family: "ROCKET";
+  src: url("/assets/fonts/ROCKET/ROCKET_WILDNESS.otf") format("opentype"),
+    url("/assets/fonts/ROCKET/ROCKET_WILDNESS.ttf") format("truetype"),
+    url("/assets/fonts/ROCKET/ROCKET_WILDNESS.woff") format("woff");
+}

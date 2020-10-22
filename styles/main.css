@@ -1,0 +1,118 @@
+* {
+  background: transparent;
+  border: none;
+  color: rgb(200, 200, 200);
+  font-family: "DejaVu Sans Light", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: rgb(50, 50, 50);
+}
+
+form > .inputBox {
+  position: relative;
+  display: inline-block;
+  margin: 1em 1.5em 2.75em 1.5em;
+}
+
+input,
+textarea,
+button {
+  background: rgb(0, 0, 0, 0.4);
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 1em;
+  font-size: 1em;
+  outline: none;
+}
+form > .inputBox > textarea {
+  height: 5em;
+  margin-bottom: 0;
+  resize: none;
+}
+
+form > .inputBox > label,
+form > .inputBox > span {
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transition: 0.3s all;
+}
+
+form > .inputBox > label,
+form > .inputBox > span,
+form > .inputBox > input,
+form > .inputBox > textarea {
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 1em 1em 1em 2em;
+  transition: 0.3s all;
+}
+form > .inputBox > span {
+  padding: 0.95em 0.5em;
+}
+
+form > .inputBox > input:focus ~ label,
+form > .inputBox > input:valid ~ label,
+form > .inputBox > textarea:focus ~ label,
+form > .inputBox > textarea:valid ~ label {
+  font-weight: bold;
+  font-size: 12px;
+  left: -16px;
+  top: -10px;
+}
+
+form > .inputBox > input:focus,
+form > .inputBox > textarea:focus {
+  border-color: rgb(255, 0, 0);
+}
+
+form > input[type="submit"],
+form > button {
+  cursor: pointer;
+  padding: 1em 2em;
+  text-transform: capitalize;
+}
+
+.nav {
+  list-style-type: none;
+  display: table;
+  width: 100%;
+}
+
+.nav li {
+  display: table-cell;
+  text-align: center;
+}
+
+.nav li a {
+  display: block;
+  padding: 1em;
+}
+.nav li a:hover {
+  background: rgb(0, 0, 0, 0.4);
+}
+
+table {
+  display: table;
+  width: 100%;
+}
+
+table > tr > tr {
+  background: none;
+  display: block;
+  padding: 0;
+}
+
+table tr {
+  background: rgb(0, 0, 0, 0.25);
+}
+
+table td,
+table th {
+  padding: 1em;
+  vertical-align: middle;
+}
