@@ -11,6 +11,27 @@ html {
   background: rgb(50, 50, 50);
 }
 
+aside {
+  background: rgb(0, 0, 0, 0.25);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-size: 3em;
+  padding: 1em;
+  text-align: center;
+}
+
+aside p {
+  display: block;
+  padding: 2em 0;
+  text-align: center;
+  width: 30em;
+}
+
 form > .inputBox {
   position: relative;
   display: inline-block;
@@ -61,7 +82,7 @@ form > .inputBox > textarea:focus ~ label,
 form > .inputBox > textarea:valid ~ label {
   font-weight: bold;
   font-size: 12px;
-  left: -16px;
+  left: -20px;
   top: -10px;
 }
 
@@ -94,6 +115,28 @@ form > button {
 }
 .nav li a:hover {
   background: rgb(0, 0, 0, 0.4);
+}
+
+ul {
+  display: block;
+}
+
+ul > li {
+  background: rgba(255, 255, 255, 0.1);
+  display: block;
+  position: relative;
+  text-align: right;
+}
+
+ul > li > label {
+  position: absolute;
+  left: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+ul > li > button {
+  margin: 0.25em;
 }
 
 table {

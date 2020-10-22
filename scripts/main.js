@@ -5,7 +5,7 @@ const appView = {
 			<div>
 				<ul>
 					<li v-for="task in tasks">
-						<label>{{ task.id }} === {{ task.label }}</label>
+						<label>{{ task.id }} {{ task.label }}</label>
 						<button @click="delTask(task)">
 							<span class="mdi mdi-trash-can"></span>
 						</button>
@@ -48,8 +48,8 @@ const appView = {
   data() {
     return {
       task: "",
-      tasklog: 0,
-      tasks: [],
+      tasklog: 1,
+      tasks: [{ id: 1, label: "pisser bordel" }],
     };
   },
 };
