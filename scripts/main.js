@@ -39,10 +39,7 @@ const appView = {
 
     delTask(task) {
       this.tasks.forEach((v, k) => {
-        if (v.id === task.id) {
-          this.tasks.splice(k, 1);
-          console.log(k);
-        }
+        if (v.id === task.id) this.tasks.splice(k, 1);
       });
     },
   },
