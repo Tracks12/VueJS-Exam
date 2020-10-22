@@ -48,8 +48,8 @@ const appView = {
   data() {
     return {
       task: "",
-      tasklog: 1,
-      tasks: [{ id: 1, label: "pisser bordel" }],
+      tasklog: 0,
+      tasks: [],
     };
   },
 };
