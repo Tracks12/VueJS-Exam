@@ -39,14 +39,14 @@ const appView = {
       this.task = null;
 
       localStorage.tasklog = this.tasklog;
-      localStorage.tasks = JSON.stringify(this.tasks);
+      localStorage.tasks = btoa(JSON.stringify(this.tasks));
     },
 
     delTask(task) {
       this.tasks.forEach((v, k) => {
         if (v.id === task.id) this.tasks.splice(k, 1);
 
-        localStorage.tasks = JSON.stringify(this.tasks);
+        localStorage.tasks = btoa(JSON.stringify(this.tasks));
       });
     },
   },
@@ -55,7 +55,7 @@ const appView = {
     return {
       task: "",
       tasklog: localStorage.tasklog ? localStorage.tasklog : 0,
-      tasks: localStorage.tasks ? JSON.parse(localStorage.tasks) : [],
+      tasks: localStorage.tasks ? JSON.parse(atob(localStorage.tasks)) : [],
     };
   },
 };
