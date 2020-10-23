@@ -1,3 +1,6 @@
+@import "/styles/materialdesignicons.min.css";
+@import "/styles/fonts.css";
+
 * {
   background: transparent;
   border: none;

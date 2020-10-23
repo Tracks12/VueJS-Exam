@@ -1,3 +1,5 @@
+import "/scripts/jquery-3.5.1.js";
+
 const appView = {
   template: `
 		<aside>
@@ -63,6 +65,7 @@ $(document).ready(() => {
       return {
         app: {
           title: "to do list",
+          version: "1.0",
         },
       };
     },
