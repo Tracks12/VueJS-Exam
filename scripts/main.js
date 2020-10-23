@@ -1,5 +1,15 @@
 import "/scripts/jquery-3.5.1.js";
 
+class store {
+  static load(data) {
+    return JSON.parse(atob(data));
+  }
+
+  static save(data) {
+    return btoa(JSON.stringify(data));
+  }
+}
+
 const appView = {
   template: `
 		<aside>
@@ -39,14 +49,14 @@ const appView = {
       this.task = null;
 
       localStorage.tasklog = this.tasklog;
-      localStorage.tasks = btoa(JSON.stringify(this.tasks));
+      localStorage.tasks = store.save(this.tasks);
     },
 
     delTask(task) {
       this.tasks.forEach((v, k) => {
         if (v.id === task.id) this.tasks.splice(k, 1);
 
-        localStorage.tasks = btoa(JSON.stringify(this.tasks));
+        localStorage.tasks = store.save(this.tasks);
       });
     },
   },
@@ -55,7 +65,7 @@ const appView = {
     return {
       task: "",
       tasklog: localStorage.tasklog ? localStorage.tasklog : 0,
-      tasks: localStorage.tasks ? JSON.parse(atob(localStorage.tasks)) : [],
+      tasks: localStorage.tasks ? store.load(localStorage.tasks) : [],
     };
   },
 };
