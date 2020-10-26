@@ -1,5 +1,3 @@
-import "/scripts/jquery-3.5.1.js";
-
 class store {
   static load(data) {
     return JSON.parse(atob(data));
@@ -67,7 +65,7 @@ const appView = {
   },
 };
 
-$(document).ready(() => {
+window.onload = () => {
   const app = Vue.createApp({
     components: {
       "app-view": appView,
@@ -85,4 +83,4 @@ $(document).ready(() => {
 
   app.mount("#app");
   //app.unmount();
-});
+};
