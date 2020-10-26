@@ -40,15 +40,13 @@ const appView = {
       if (!this.task) return false;
 
       let task = {
-        id: this.tasklog + 1,
+        id: Date.now(),
         label: this.task,
       };
 
-      this.tasklog++;
       this.tasks.push(task);
       this.task = null;
 
-      localStorage.tasklog = this.tasklog;
       localStorage.tasks = store.save(this.tasks);
     },
 
@@ -64,7 +62,6 @@ const appView = {
   data() {
     return {
       task: "",
-      tasklog: localStorage.tasklog ? localStorage.tasklog : 0,
       tasks: localStorage.tasks ? store.load(localStorage.tasks) : [],
     };
   },
