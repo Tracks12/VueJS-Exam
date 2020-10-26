@@ -14,14 +14,6 @@ html {
   background: rgb(50, 50, 50);
 }
 
-aside {
-  background: rgb(0, 0, 0, 0.25);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
 h1 {
   font-size: 3em;
   padding: 1em;
@@ -29,11 +21,19 @@ h1 {
   text-transform: capitalize;
 }
 
+aside {
+  background: rgb(0, 0, 0, 0.25);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30em;
+}
+
 aside p {
   display: block;
-  padding: 2em 0;
+  padding: 2em 0 1em 0;
   text-align: center;
-  width: 30em;
 }
 
 form > .inputBox {
@@ -114,7 +114,7 @@ form > .inputBox > textarea:focus {
   padding: 0.25em;
 }
 .warn:hover {
-  background: rgba(200, 0, 0, 0.4);
+  background: rgba(255, 0, 0, 0.4);
 }
 
 .nav {
@@ -178,4 +178,18 @@ table td,
 table th {
   padding: 1em;
   vertical-align: middle;
+}
+
+@media (max-width: 720px) {
+  aside {
+    width: 90%;
+  }
+
+  form .inputBox {
+    display: block;
+  }
+
+  input {
+    width: 100%;
+  }
 }
