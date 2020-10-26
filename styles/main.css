@@ -189,6 +189,10 @@ table th {
     display: block;
   }
 
+  .warn {
+    padding: 0.5em;
+  }
+
   input {
     width: 100%;
   }
