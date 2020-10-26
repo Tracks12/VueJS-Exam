@@ -25,7 +25,7 @@ const appView = {
 			<form>
 				<div class="inputBox">
 					<span class="mdi mdi-note-plus mdi-24px"></span>
-					<input type="text" v-model="task" required />
+					<input type="text" id="task" v-model="task" required />
 					<label>add task</label>
 				</div>
 				<input type="submit" value="add" @click.prevent="addTask" />
@@ -35,7 +35,11 @@ const appView = {
 
   methods: {
     addTask() {
-      if (!this.task) return false;
+      if (!this.task) {
+        document.getElementById("task").focus();
+
+        return false;
+      }
 
       let task = {
         id: Date.now(),
