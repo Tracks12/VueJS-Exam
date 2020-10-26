@@ -12,16 +12,14 @@ const appView = {
   template: `
 		<aside>
 			<p>{{ tasks.length }} task<span v-if="tasks.length > 1">s</span> to do</p>
-			<div>
-				<ul>
-					<li v-for="task in tasks">
-						<label>{{ task.label }}</label>
-						<button class="warn" @click="delTask(task)">
-							<span class="mdi mdi-trash-can mdi-24px"></span>
-						</button>
-					</li>
-				</ul>
-			</div>
+			<ul>
+				<li v-for="task in tasks">
+					<label>{{ task.label }}</label>
+					<button class="warn" @click="delTask(task)">
+						<span class="mdi mdi-trash-can mdi-24px"></span>
+					</button>
+				</li>
+			</ul>
 			<form>
 				<div class="inputBox">
 					<span class="mdi mdi-note-plus mdi-24px"></span>
