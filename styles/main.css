@@ -151,10 +151,21 @@ ul > li {
 ul > li > label {
   position: absolute;
   left: 1em;
+  right: 0;
   text-align: left;
   top: 50%;
   transform: translateY(-50%);
   word-break: break-all;
+  z-index: -1;
+}
+
+ul > li > label > .infoHolder {
+  color: rgb(130, 130, 130);
+  display: none;
+  font-size: 0.7em;
+}
+ul > li:hover > label > .infoHolder {
+  display: block;
 }
 
 ul > li > button {

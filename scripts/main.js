@@ -14,7 +14,7 @@ const appView = {
 			<p>{{ tasks.length }} task<span v-if="tasks.length > 1">s</span> to do</p>
 			<ul>
 				<li v-for="task in tasks">
-					<label>{{ task.label }}</label>
+					<label><span class="infoHolder">{{ new Date(task.id).toLocaleString() }}</span>{{ task.label }}</label>
 					<button class="warn" @click="delTask(task)">
 						<span class="mdi mdi-trash-can mdi-24px"></span>
 					</button>
