@@ -2,6 +2,6 @@
 
 make a to do list with VueJS
 
-## preview
+## Preview
 
 ![preview](preview.gif)
