@@ -16,7 +16,7 @@ const appView = {
 				<ul>
 					<li v-for="task in tasks">
 						<label>{{ task.label }}</label>
-						<button @click="delTask(task)">
+						<button class="warn" @click="delTask(task)">
 							<span class="mdi mdi-trash-can mdi-24px"></span>
 						</button>
 					</li>
