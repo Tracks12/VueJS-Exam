@@ -11,7 +11,7 @@ class store {
 const appView = {
   template: `
 		<aside>
-			<p>{{ tasks.length }} tasks to do</p>
+			<p>{{ tasks.length }} task<span v-if="tasks.length > 1">s</span> to do</p>
 			<div>
 				<ul>
 					<li v-for="task in tasks">
@@ -59,7 +59,7 @@ const appView = {
 
   data() {
     return {
-      task: "",
+      task: null,
       tasks: localStorage.tasks ? store.load(localStorage.tasks) : [],
     };
   },

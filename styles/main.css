@@ -51,10 +51,20 @@ button {
   font-size: 1em;
   outline: none;
 }
-form > .inputBox > textarea {
+textarea {
   height: 5em;
   margin-bottom: 0;
   resize: none;
+}
+
+input[type="submit"],
+button {
+  cursor: pointer;
+  padding: 1em;
+  text-transform: capitalize;
+}
+input[type="submit"] {
+  padding: 1em 2em;
 }
 
 form > .inputBox > label,
@@ -92,13 +102,6 @@ form > .inputBox > textarea:valid ~ label {
 form > .inputBox > input:focus,
 form > .inputBox > textarea:focus {
   border-color: rgb(255, 0, 0);
-}
-
-form > input[type="submit"],
-form > button {
-  cursor: pointer;
-  padding: 1em 2em;
-  text-transform: capitalize;
 }
 
 .nav {
