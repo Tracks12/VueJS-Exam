@@ -27,7 +27,7 @@ aside {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 30em;
+  width: 35em;
 }
 
 aside p {
@@ -151,8 +151,10 @@ ul > li {
 ul > li > label {
   position: absolute;
   left: 1em;
+  text-align: left;
   top: 50%;
   transform: translateY(-50%);
+  word-break: break-all;
 }
 
 ul > li > button {
