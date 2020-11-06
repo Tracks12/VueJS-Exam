@@ -8,28 +8,12 @@ class store {
   }
 }
 
+const toDoList = new XMLHttpRequest();
+toDoList.open("GET", "/views/todo.html", false);
+toDoList.send();
+
 const appView = {
-  template: `
-		<aside>
-			<p>{{ tasks.length }} task<span v-if="tasks.length > 1">s</span> to do</p>
-			<ul>
-				<li v-for="task in tasks">
-					<label><span class="infoHolder">{{ new Date(task.id).toLocaleString() }}</span>{{ task.label }}</label>
-					<button class="warn" @click="delTask(task)">
-						<span class="mdi mdi-trash-can mdi-24px"></span>
-					</button>
-				</li>
-			</ul>
-			<form>
-				<div class="inputBox">
-					<span class="mdi mdi-note-plus mdi-24px"></span>
-					<input type="text" id="task" v-model="task" required />
-					<label>add task</label>
-				</div>
-				<input type="submit" value="add" @click.prevent="addTask" />
-			</form>
-		</aside>
-	`,
+  template: toDoList.responseText,
 
   methods: {
     addTask() {
@@ -86,3 +70,7 @@ window.onload = () => {
   app.mount("#app");
   //app.unmount();
 };
+
+/**
+ * END
+ */
