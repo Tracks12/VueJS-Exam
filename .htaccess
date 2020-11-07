@@ -3,10 +3,5 @@ php_flag output_buffering on
 
 Options -Indexes -FollowSymLinks -MultiViews
 
-<files "users.json">
-	Deny from all
-	Allow from 127.0.0.1
-</files>
-
 #ErrorDocument 403 /
 #ErrorDocument 404 /
