@@ -5,3 +5,25 @@
   font-family: "DejaVu Sans Light";
   src: url("/assets/fonts/DejaVu/DejaVu.ttf") format("truetype");
 }
+
+/**
+ * "Material Design Icons" Font Integration
+ */
+@font-face {
+  font-family: "Material Design Icons";
+  src: url("/assets/fonts/MaterialDesign/materialdesignicons-webfont.eot?v=5.5.55");
+  src: url("/assets/fonts/MaterialDesign/materialdesignicons-webfont.eot?#iefix&v=5.5.55")
+      format("embedded-opentype"),
+    url("/assets/fonts/MaterialDesign/materialdesignicons-webfont.woff2?v=5.5.55")
+      format("woff2"),
+    url("/assets/fonts/MaterialDesign/materialdesignicons-webfont.woff?v=5.5.55")
+      format("woff"),
+    url("/assets/fonts/MaterialDesign/materialdesignicons-webfont.ttf?v=5.5.55")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**
+ * END
+ */
