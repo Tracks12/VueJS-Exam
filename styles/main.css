@@ -1,4 +1,4 @@
-@import "/styles/materialdesignicons.min.css";
+@import "/styles/vendor/materialdesignicons.min.css";
 @import "/styles/fonts.css";
 
 * {
@@ -37,9 +37,10 @@ aside p {
 }
 
 form > .inputBox {
-  position: relative;
   display: inline-block;
   margin: 1em 1.5em 1.5em 1.5em;
+	position: relative;
+	width: 70%;
 }
 
 input,
@@ -56,6 +57,10 @@ textarea {
   height: 5em;
   margin-bottom: 0;
   resize: none;
+}
+
+input[type="text"] {
+	width: 100%;
 }
 
 input[type="submit"],
@@ -193,13 +198,24 @@ table th {
   vertical-align: middle;
 }
 
-@media (max-width: 720px) {
+@media(min-width: 1080px) {
+	aside {
+    width: 1000px;
+  }
+
+	.inputBox {
+    width: 83% !important;
+  }
+}
+
+@media(max-width: 720px) {
   aside {
     width: 90%;
   }
 
   form .inputBox {
     display: block;
+		width: auto;
   }
 
   .warn {
