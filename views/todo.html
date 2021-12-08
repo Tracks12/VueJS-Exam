@@ -1,24 +1,29 @@
 <aside>
-  <p>{{ tasks.length }} task<span v-if="tasks.length > 1">s</span> to do</p>
-  <ul>
-    <li v-for="task in tasks">
-      <label>
-        <span class="infoHolder">
-          {{ new Date(task.id).toLocaleString() }}
-        </span>
-        {{ task.label }}
-      </label>
-      <button class="warn" @click="delTask(task)">
-        <span class="mdi mdi-trash-can mdi-24px"></span>
-      </button>
-    </li>
-  </ul>
-  <form>
-    <div class="inputBox">
-      <span class="mdi mdi-note-plus mdi-24px"></span>
-      <input type="text" id="task" v-model="task" required />
-      <label>add task</label>
-    </div>
-    <input type="submit" value="add" @click.prevent="addTask" />
-  </form>
+	<p>{{ tasks.length }} task<span v-if="tasks.length > 1">s</span> to do</p>
+	<button class="undo" @click="undoMoveToTrash()" v-bind:hidden="!trash.length">
+		<span class="mdi mdi-undo mdi-24px"></span>
+	</button>
+	<ul>
+	  <li v-for="task in tasks" v-bind:class="task.checked ? 'checked' : ''">
+			<input type="checkbox" v-bind:name="task.id" @click="checkTask(task)" v-bind:checked="task.checked">
+	    <label>
+	      <span class="infoHolder">{{ new Date(task.id).toLocaleString() }}</span>
+	      <span class="content">{{ task.label }}</span>
+	    </label>
+			<button class="edit" @click="editTask(task)">
+	      <span class="mdi mdi-pencil mdi-24px"></span>
+	    </button>
+	    <button class="warn" @click="moveToTrash(task)">
+	      <span class="mdi mdi-trash-can mdi-24px"></span>
+	    </button>
+	  </li>
+	</ul>
+	<form>
+		<div class="inputBox">
+			<span class="mdi mdi-note-plus mdi-24px"></span>
+			<input type="text" id="task" v-model="task" required />
+			<label>add task</label>
+		</div>
+		<input type="submit" value="add" @click.prevent="addTask" />
+	</form>
 </aside>

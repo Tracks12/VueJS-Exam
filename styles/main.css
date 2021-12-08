@@ -22,7 +22,7 @@ h1 {
 }
 
 aside {
-  background: rgb(0, 0, 0, 0.25);
+  background: rgb(0, 0, 0, .25);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -46,7 +46,7 @@ form > .inputBox {
 input,
 textarea,
 button {
-  background: rgb(0, 0, 0, 0.4);
+  background: rgb(0, 0, 0, .4);
   border-radius: 5px;
   box-sizing: border-box;
   padding: 1em;
@@ -68,13 +68,13 @@ button {
   cursor: pointer;
   padding: 1em;
   text-transform: capitalize;
-  transition: 0.2s;
+  transition: .2s;
 }
 input[type="submit"] {
   padding: 1em 2em;
 }
 input[type="submit"]:hover {
-  background: rgba(0, 150, 0, 0.4);
+  background: rgba(0, 150, 0, .4);
 }
 
 form > .inputBox > label,
@@ -83,7 +83,7 @@ form > .inputBox > span {
   pointer-events: none;
   position: absolute;
   top: 0;
-  transition: 0.3s all;
+  transition: .3s all;
   text-transform: capitalize;
 }
 
@@ -94,10 +94,10 @@ form > .inputBox > textarea {
   font-size: 18px;
   letter-spacing: 1px;
   padding: 1em 1em 1em 2em;
-  transition: 0.3s all;
+  transition: .3s all;
 }
 form > .inputBox > span {
-  padding: 0.95em 0.5em;
+  padding: .95em .5em;
 }
 
 form > .inputBox > input:focus ~ label,
@@ -115,30 +115,28 @@ form > .inputBox > textarea:focus {
   border-color: rgb(255, 0, 0);
 }
 
-.warn {
-  padding: 0.25em;
+.edit, .warn, .undo {
+  padding: .25em;
+}
+.edit, .warn {
+	display: none;
+}
+.undo {
+	position: absolute;
+	right: 1em;
+	top: 1em;
 }
 .warn:hover {
-  background: rgba(255, 0, 0, 0.4);
+  background: rgb(200, 0, 0);
+}
+.undo:hover, .edit:hover {
+  background: rgb(200, 100, 0);
 }
 
-.nav {
-  list-style-type: none;
-  display: table;
-  width: 100%;
-}
-
-.nav li {
-  display: table-cell;
-  text-align: center;
-}
-
-.nav li a {
-  display: block;
-  padding: 1em;
-}
-.nav li a:hover {
-  background: rgba(0, 0, 0, 0.4);
+ul > li:hover .undo,
+ul > li:hover .edit,
+ul > li:hover .warn {
+	display: inline;
 }
 
 ul {
@@ -146,16 +144,26 @@ ul {
 }
 
 ul > li {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, .1);
   display: block;
-  margin-top: 0.2em;
+	height: 2.8em;
+  margin-top: 3px;
   position: relative;
   text-align: right;
 }
 
+ul > li > input[type="checkbox"] {
+	cursor: pointer;
+	position: absolute;
+	left: .75em;
+	top: 50%;
+	transform: translateY(-50%);
+	width: auto !important;
+}
+
 ul > li > label {
   position: absolute;
-  left: 1em;
+  left: 2.25em;
   right: 0;
   text-align: left;
   top: 50%;
@@ -167,35 +175,22 @@ ul > li > label {
 ul > li > label > .infoHolder {
   color: rgb(130, 130, 130);
   display: none;
-  font-size: 0.7em;
+  font-size: .7em;
 }
 ul > li:hover > label > .infoHolder {
   display: block;
 }
 
+ul > li.checked {
+	background: rgba(100, 255, 100, .2);
+}
+
+ul > li.checked > label > .content {
+	text-decoration: line-through;
+}
+
 ul > li > button {
-  margin: 0.25em;
-}
-
-table {
-  display: table;
-  width: 100%;
-}
-
-table > tr > tr {
-  background: none;
-  display: block;
-  padding: 0;
-}
-
-table tr {
-  background: rgba(0, 0, 0, 0.25);
-}
-
-table td,
-table th {
-  padding: 1em;
-  vertical-align: middle;
+  margin: .25em;
 }
 
 @media(min-width: 1080px) {
@@ -218,13 +213,17 @@ table th {
 		width: auto;
   }
 
-  .warn {
-    padding: 0.5em;
+  .undo, .edit, .warn {
+    padding: .5em;
   }
 
   input {
     width: 100%;
   }
+
+	ul > li {
+		height: 3.3em;
+	}
 }
 
 /**
