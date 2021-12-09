@@ -1,19 +1,8 @@
-class store {
-	static load(data) {
-		return JSON.parse(atob(data));
-	}
-
-	static save(data) {
-		return btoa(JSON.stringify(data));
-	}
-}
-
-const toDoList = new XMLHttpRequest();
-toDoList.open("GET", "/views/todo.html", false);
-toDoList.send();
+import Request from "./common/request.js";
+import Store from "./common/store.js";
 
 const appView = {
-  template: toDoList.responseText,
+	template: Request.get("/views/todo.html"),
 
   methods: {
     addTask() {
@@ -31,45 +20,45 @@ const appView = {
 			this.tasks.push(task);
 			this.task = null;
 
-			localStorage.tasks = store.save(this.tasks);
+			localStorage.tasks = Store.save(this.tasks);
 		},
 
 		checkTask(task) {
 			task.checked = !task.checked;
 
-			localStorage.tasks = store.save(this.tasks);
+			localStorage.tasks = Store.save(this.tasks);
 		},
 
 		editTask(task) {
-			console.log("edit task");
+			console.log(`Edit task: ${task.id}`);
 		},
 
 		moveToTrash(task) {
 			this.tasks.forEach((v, k) => {
 				if(v.id === task.id) this.tasks.splice(k, 1);
 
-				localStorage.tasks = store.save(this.tasks);
+				localStorage.tasks = Store.save(this.tasks);
 			});
 
 			this.trash.push(task);
 
-			localStorage.trash = store.save(this.trash);
+			localStorage.trash = Store.save(this.trash);
 		},
 
 		undoMoveToTrash() {
 			this.tasks.push(this.trash[this.trash.length-1]);
 			this.trash.pop();
 
-			localStorage.trash = store.save(this.trash);
-			localStorage.tasks = store.save(this.tasks);
+			localStorage.trash = Store.save(this.trash);
+			localStorage.tasks = Store.save(this.tasks);
 		}
   },
 
 	data() {
 		return {
 			task: null,
-			tasks: localStorage.tasks ? store.load(localStorage.tasks) : [],
-			trash: localStorage.trash ? store.load(localStorage.trash) : [],
+			tasks: localStorage.tasks ? Store.load(localStorage.tasks) : [],
+			trash: localStorage.trash ? Store.load(localStorage.trash) : [],
 		};
 	},
 };

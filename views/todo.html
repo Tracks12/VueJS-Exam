@@ -1,21 +1,31 @@
 <aside>
-	<p>{{ tasks.length }} task<span v-if="tasks.length > 1">s</span> to do</p>
-	<button class="undo" @click="undoMoveToTrash()" v-bind:hidden="!trash.length">
-		<span class="mdi mdi-undo mdi-24px"></span>
-	</button>
+	<p>{{ tasks.length }} task<span v-if="tasks.length > 1">s</span> ({{ tasks.filter((task) => task.checked).length }} done, {{ tasks.filter((task) => !task.checked).length }} to do)</p>
+	<!-- <div class="container left">
+		<button class="options" title="Download tasks list" @click="">
+			<span class="mdi mdi-download mdi-24px"></span>
+		</button>
+		<button class="options" title="Upload a tasks list" @click="">
+			<span class="mdi mdi-upload mdi-24px"></span>
+		</button>
+	</div> -->
+	<div class="container right">
+		<button class="undo" title="Restores the last task" @click="undoMoveToTrash()" v-bind:hidden="!trash.length">
+			<span class="mdi mdi-undo mdi-24px"></span>
+		</button>
+	</div>
 	<ul>
 	  <li v-for="task in tasks" v-bind:class="task.checked ? 'checked' : ''">
-			<input type="checkbox" v-bind:name="task.id" @click="checkTask(task)" v-bind:checked="task.checked">
-	    <label>
-	      <span class="infoHolder">{{ new Date(task.id).toLocaleString() }}</span>
-	      <span class="content">{{ task.label }}</span>
-	    </label>
-			<button class="edit" @click="editTask(task)">
-	      <span class="mdi mdi-pencil mdi-24px"></span>
-	    </button>
-	    <button class="warn" @click="moveToTrash(task)">
-	      <span class="mdi mdi-trash-can mdi-24px"></span>
-	    </button>
+			<input type="checkbox" v-bind:id="task.id" @click="checkTask(task)" v-bind:checked="task.checked">
+			<label v-bind:for="task.id">
+				<span class="infoHolder">{{ new Date(task.id).toLocaleString() }}</span>
+				<span class="content">{{ task.label }}</span>
+			</label>
+			<!-- <button class="edit" title="Edit" @click="editTask(task)">
+				<span class="mdi mdi-pencil mdi-24px"></span>
+			</button> -->
+			<button class="warn" title="Delete" @click="moveToTrash(task)">
+				<span class="mdi mdi-trash-can mdi-24px"></span>
+			</button>
 	  </li>
 	</ul>
 	<form>

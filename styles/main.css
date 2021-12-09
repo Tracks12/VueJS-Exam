@@ -1,17 +1,30 @@
 @import "/styles/vendor/materialdesignicons.min.css";
 @import "/styles/fonts.css";
 
+:root {
+	--main-color: rgb(200, 200, 200);
+	--main-bg: rgb(50, 50, 50);
+
+	--frame-bg: rgba(0, 0, 0, .25);
+
+	--assets-bg: rgba(0, 0, 0, .4);
+
+	--color-validate: rgb(0, 150, 0);
+	--color-options: rgb(175, 100, 0);
+	--color-warn: rgb(150, 0, 0);
+}
+
 * {
   background: transparent;
   border: none;
-  color: rgb(200, 200, 200);
+  color: var(--main-color);
   font-family: "DejaVu Sans Light", sans-serif;
   margin: 0;
   padding: 0;
 }
 
 html {
-  background: rgb(50, 50, 50);
+  background: var(--main-bg);
 }
 
 h1 {
@@ -22,7 +35,7 @@ h1 {
 }
 
 aside {
-  background: rgb(0, 0, 0, .25);
+  background: var(--frame-bg);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -46,7 +59,7 @@ form > .inputBox {
 input,
 textarea,
 button {
-  background: rgb(0, 0, 0, .4);
+  background: var(--assets-bg);
   border-radius: 5px;
   box-sizing: border-box;
   padding: 1em;
@@ -68,13 +81,13 @@ button {
   cursor: pointer;
   padding: 1em;
   text-transform: capitalize;
-  transition: .2s;
+  transition: .2s background;
 }
 input[type="submit"] {
   padding: 1em 2em;
 }
 input[type="submit"]:hover {
-  background: rgba(0, 150, 0, .4);
+  background: var(--color-validate);
 }
 
 form > .inputBox > label,
@@ -115,22 +128,37 @@ form > .inputBox > textarea:focus {
   border-color: rgb(255, 0, 0);
 }
 
-.edit, .warn, .undo {
+.container {
+	position: absolute;
+	top: .75em;
+}
+.container.left {
+	left: .75em;
+}
+.container.right {
+	right: .75em;
+}
+
+.container > button {
+	margin: .25em;
+}
+
+.options, .undo, .edit, .warn {
   padding: .25em;
 }
 .edit, .warn {
 	display: none;
-}
-.undo {
-	position: absolute;
-	right: 1em;
-	top: 1em;
+	position: relative;
+	z-index: 1;
 }
 .warn:hover {
-  background: rgb(200, 0, 0);
+  background: var(--color-warn);
 }
 .undo:hover, .edit:hover {
-  background: rgb(200, 100, 0);
+  background: var(--color-options);
+}
+.options:hover {
+	background: var(--color-validate);
 }
 
 ul > li:hover .undo,
@@ -141,6 +169,8 @@ ul > li:hover .warn {
 
 ul {
   display: block;
+	max-height: 15em;
+	overflow: auto;
 }
 
 ul > li {
@@ -159,17 +189,21 @@ ul > li > input[type="checkbox"] {
 	top: 50%;
 	transform: translateY(-50%);
 	width: auto !important;
+	z-index: 1;
 }
 
 ul > li > label {
+	left: 0;
+	padding-left: 2.25em;
   position: absolute;
-  left: 2.25em;
-  right: 0;
+  right: 1em;
   text-align: left;
   top: 50%;
   transform: translateY(-50%);
   word-break: break-all;
-  z-index: -1;
+}
+ul > li:hover > label {
+	padding-right: 1.75em;
 }
 
 ul > li > label > .infoHolder {
@@ -182,10 +216,11 @@ ul > li:hover > label > .infoHolder {
 }
 
 ul > li.checked {
-	background: rgba(100, 255, 100, .2);
+	background: rgba(255, 255, 255, .05);
 }
 
 ul > li.checked > label > .content {
+	color: rgb(255, 255, 255, .3);
 	text-decoration: line-through;
 }
 
@@ -204,22 +239,33 @@ ul > li > button {
 }
 
 @media(max-width: 720px) {
-  aside {
-    width: 90%;
-  }
+	aside {
+		width: 90%;
+	}
 
-  form .inputBox {
-    display: block;
+	form .inputBox {
+		display: block;
 		width: auto;
-  }
+	}
 
-  .undo, .edit, .warn {
-    padding: .5em;
-  }
+	.options, .undo, .edit, .warn {
+		padding: .5em;
+	}
 
-  input {
-    width: 100%;
-  }
+	.container {
+		position: absolute;
+		top: .6em;
+	}
+	.container.left {
+		left: .6em;
+	}
+	.container.right {
+		right: .6em;
+	}
+
+	input {
+		width: 100%;
+	}
 
 	ul > li {
 		height: 3.3em;
